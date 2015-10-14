@@ -1,0 +1,18 @@
+<h2>All Auctions</h2>
+<ul>
+  <% @auctions.each do |auction| %>
+    <li><%=link_to auction.title, auction_path(auction) %>
+  <% end %>
+</ul>
+
+<% if signed_in? %>
+<h2>Your Auctions</h2>
+<ul>
+  <% @your_auctions.each do |auction| %>
+    <li><%=link_to auction.title, admin_auction_path(auction) %>
+  <% end %>
+</ul>
+<p>
+<%=link_to "Create Auction", new_auction_path %>
+</p>
+<% end %>
